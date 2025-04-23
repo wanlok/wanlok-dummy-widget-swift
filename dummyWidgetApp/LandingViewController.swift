@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import WidgetKit
 
 class LandingViewController: UIViewController {
     
     @IBOutlet weak var rateLabel: UILabel!
 
-    let defaults = UserDefaults(suiteName: "com.wanlok.dummyWidgetApp")
+    let defaults = UserDefaults(suiteName: "group.com.wanlok.dummyWidgetApp")
     
     @IBAction func updateRate(_ sender: Any) {
         fetchAUDToUSDRate { rate in
@@ -19,6 +20,7 @@ class LandingViewController: UIViewController {
             DispatchQueue.main.async {
                 self.rateLabel.text = rate
             }
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
     
