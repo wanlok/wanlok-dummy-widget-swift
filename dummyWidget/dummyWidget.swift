@@ -47,7 +47,7 @@ let formatter: DateFormatter = {
 
 struct dummyWidgetEntryView : View {
    @AppStorage("rate", store: UserDefaults(suiteName: "group.com.wanlok.dummyWidgetApp"))
-   var rate: String = "0.0000"
+   var rate: String = "-"
     
     var entry: Provider.Entry
 

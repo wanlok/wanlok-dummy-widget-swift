@@ -24,7 +24,18 @@ class LandingViewController: UIViewController {
         }
     }
     
+    @IBAction func onClearButtonClick(_ sender: Any) {
+        defaults?.removeObject(forKey: "rate")
+        rateLabel.text = "-"
+        WidgetCenter.shared.reloadAllTimelines()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let rate = defaults?.object(forKey: "rate") as? String {
+            rateLabel.text = rate
+        } else {
+            rateLabel.text = "-"
+        }
     }
 }
